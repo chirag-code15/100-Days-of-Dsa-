@@ -1,3 +1,4 @@
+// Insert an element at given index
 #include<stdio.h>
 int main(){
     int n ; 
@@ -23,4 +24,5 @@ int main(){
         printf("%d ",arr[i]) ; 
     }
     return 0 ; 
+
 }
