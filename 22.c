@@ -1,41 +1,29 @@
-// Create linked list 
+// Count the number of nodes in the linked list
 #include<stdio.h>
 #include<stdlib.h>
 struct node{
     int val ; 
     struct node * next ; 
 } ; 
-struct node* createnode(int k){
+struct node * createnode(int k){
     struct node * newnode = (struct node *)malloc(sizeof(struct node)) ; 
     newnode->val = k ; 
-    newnode->next = NULL ; 
-    return newnode ; 
+    newnode->next = NULL; 
 }
-void printlist(struct node * head){
+int count_node(struct node * head){
+    int count = 0 ; 
     while(head!=NULL){
-        printf("%d ",head->val) ;
-        head = head->next ;  
+        count += 1; 
+        head = head->next ; 
     }
+    return count ; 
 }
 int main(){
-    int n ;
-    scanf("%d",&n) ; 
-    struct node * head = NULL ; 
-    struct node * temp= NULL ; 
-    while(n!=0){
-        int val ; 
-        scanf("%d",&val) ; 
-        struct node* newnode = createnode(val) ; 
-        if(head==NULL){
-            head = newnode ; 
-            temp = newnode ; 
-        }
-        else{
-            temp->next = newnode ; 
-            temp = newnode ; 
-        }
-        n-- ; 
-    }
-    printlist(head) ; 
+    struct node * head = createnode(1) ; 
+    head->next = createnode(2) ; 
+    head->next->next = createnode(3) ; 
+    head->next->next->next = createnode(4) ;
+    head->next->next->next->next = createnode(5) ;
+    printf("%d",count_node(head)) ;
     return 0 ; 
 }
